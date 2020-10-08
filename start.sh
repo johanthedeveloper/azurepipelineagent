@@ -110,6 +110,7 @@ trap 'cleanup; exit 143' TERM
 
 print_header "4. Configuring Azure Pipelines agent..."
 
+#fix for microsoft build arm64
 chmod +x ./bin/Agent.Listener
 
 ./config.sh --unattended \
