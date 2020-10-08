@@ -101,6 +101,10 @@ fi
 
 print_header "3. Downloading and installing Azure Pipelines agent..."
 
+echo $AZP_AGENTPACKAGE_URL
+AZP_AGENTPACKAGE_URL="https://vstsagentpackage.azureedge.net/agent/2.174.3/vsts-agent-linux-arm64-2.174.3.tar.gz"
+echo $AZP_AGENTPACKAGE_URL
+
 curl -LsS $AZP_AGENTPACKAGE_URL | tar -xz & wait $!
 
 source ./env.sh
@@ -118,8 +122,8 @@ print_header "4. Configuring Azure Pipelines agent..."
 #echo "chmod 2"
 
 #chmod +x a+rX *
-chmod -R 755 ./bin/
-chmod -R 755 ./
+#chmod -R 755 ./bin/
+#chmod -R 755 ./
 
 ./config.sh --unattended \
   --agent "${AZP_AGENT_NAME:-$(hostname)}" \
