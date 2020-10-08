@@ -117,7 +117,9 @@ print_header "4. Configuring Azure Pipelines agent..."
 #ls ./bin/Agent.Listener -l
 #echo "chmod 2"
 
-chmod +x a+rX *
+#chmod +x a+rX *
+chmod -R 755 ./bin/
+chmod -R 755 ./
 
 ./config.sh --unattended \
   --agent "${AZP_AGENT_NAME:-$(hostname)}" \
