@@ -112,14 +112,14 @@ print_header "4. Configuring Azure Pipelines agent..."
 
 #fix for microsoft build arm64
 echo "chmod 1"
-echo ls ./bin/Agent.Listener -l
+ls ./bin/Agent.Listener -l
 chmod +x ./bin/Agent.Listener
 echo "chmod 2"
 
-echo ls
-echo ls ./bin/
-echo ls ./bin/Agent.Listener
-echo ls ./bin/Agent.Listener -l
+ls
+ls ./bin/
+ls ./bin/Agent.Listener
+ls ./bin/Agent.Listener -l
 
 ./config.sh --unattended \
   --agent "${AZP_AGENT_NAME:-$(hostname)}" \
