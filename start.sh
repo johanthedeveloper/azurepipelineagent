@@ -101,9 +101,9 @@ fi
 
 print_header "3. Downloading and installing Azure Pipelines agent..."
 
-echo $AZP_AGENTPACKAGE_URL
-AZP_AGENTPACKAGE_URL="https://vstsagentpackage.azureedge.net/agent/2.174.3/vsts-agent-linux-arm64-2.174.3.tar.gz"
-echo $AZP_AGENTPACKAGE_URL
+#echo $AZP_AGENTPACKAGE_URL
+#AZP_AGENTPACKAGE_URL="https://vstsagentpackage.azureedge.net/agent/2.174.3/vsts-agent-linux-arm64-2.174.3.tar.gz"
+#echo $AZP_AGENTPACKAGE_URL
 
 curl -LsS $AZP_AGENTPACKAGE_URL | tar -xz & wait $!
 
