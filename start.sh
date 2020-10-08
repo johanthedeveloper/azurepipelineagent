@@ -72,6 +72,9 @@ else
     DOTNETCORE_URL='https://download.visualstudio.microsoft.com/download/pr/ccbcbf70-9911-40b1-a8cf-e018a13e720e/03c0621c6510f9c6f4cca6951f2cc1a4/dotnet-sdk-3.1.201-linux-arm.tar.gz'
   fi
 
+  #TEST
+  AZP_OS_TYPE='arm'
+
   mkdir -p /usr/share/dotnet/
 
   echo "Start download $DOTNETCORE_URL"
@@ -110,16 +113,12 @@ trap 'cleanup; exit 143' TERM
 
 print_header "4. Configuring Azure Pipelines agent..."
 
-#fix for microsoft build arm64
-echo "chmod 1"
-ls ./bin/Agent.Listener -l
-chmod +x ./bin/Agent.Listener
-echo "chmod 2"
-
-ls
-ls ./bin/
-ls ./bin/Agent.Listener
-ls ./bin/Agent.Listener -l
+##fix for microsoft build arm64
+#echo "chmod 1"
+#ls ./bin/Agent.Listener -l
+#chmod +x ./bin/Agent.Listener
+#ls ./bin/Agent.Listener -l
+#echo "chmod 2"
 
 ./config.sh --unattended \
   --agent "${AZP_AGENT_NAME:-$(hostname)}" \
