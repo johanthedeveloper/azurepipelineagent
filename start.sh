@@ -115,7 +115,10 @@ trap 'cleanup; exit 143' TERM
 
 print_header "4. Install dependecies Azure Pipelines agent..."
 
+apt update && apt upgrade -y 
+DEBIAN_FRONTEND="noninteractive" apt install -y curl libunwind8 gettext wget nano docker.io docker-compose --no-install-recommends ca-certificates curl jq git iputils-ping libcurl4 libicu60 libunwind8 netcat
 ./bin/installdependencies.sh
+
 
 print_header "5. Configuring Azure Pipelines agent..."
 
