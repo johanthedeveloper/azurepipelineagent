@@ -58,6 +58,11 @@ fi
 
 echo "OS TYPE: $AZP_OS_TYPE"
 
+print_header "0. Updating system"
+
+apt update && apt upgrade -y 
+DEBIAN_FRONTEND="noninteractive" apt install -y curl libunwind8 gettext wget nano docker.io docker-compose --no-install-recommends ca-certificates curl jq git iputils-ping libcurl4 libicu60 libunwind8 netcat
+
 print_header "1. Download and installing .NET CORE"
 
 if [ -d "/usr/share/dotnet/" ]; then
@@ -115,8 +120,6 @@ trap 'cleanup; exit 143' TERM
 
 print_header "4. Install dependecies Azure Pipelines agent..."
 
-apt update && apt upgrade -y 
-DEBIAN_FRONTEND="noninteractive" apt install -y curl libunwind8 gettext wget nano docker.io docker-compose --no-install-recommends ca-certificates curl jq git iputils-ping libcurl4 libicu60 libunwind8 netcat
 ./bin/installdependencies.sh
 
 
