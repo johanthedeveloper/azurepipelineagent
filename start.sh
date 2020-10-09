@@ -112,7 +112,12 @@ source ./env.sh
 trap 'cleanup; exit 130' INT
 trap 'cleanup; exit 143' TERM
 
-print_header "4. Configuring Azure Pipelines agent..."
+
+print_header "4. Install dependecies Azure Pipelines agent..."
+
+./bin/installdependencies.sh
+
+print_header "5. Configuring Azure Pipelines agent..."
 
 ##fix for microsoft build arm64
 #echo "chmod 1"
