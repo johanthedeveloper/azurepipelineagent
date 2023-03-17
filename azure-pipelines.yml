@@ -19,7 +19,7 @@ stages:
     displayName: Build
     pool:
       name: WorkerPool
-      demands: Agent.OSArchitecture -equals ARM
+      demands: Agent.OSArchitecture -equals ARM64
     steps:
     - task: Docker@2
       displayName: Build an image
