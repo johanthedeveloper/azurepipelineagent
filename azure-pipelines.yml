@@ -24,7 +24,7 @@ stages:
     - task: Docker@2
       displayName: Build an image
       inputs:
-        command: 'buil'
+        command: 'build'
         containerRegistry: 'dockerhub_johanthedeveloper'
         repository: 'johanthedeveloper/azurepipelineagent'
         dockerfile: '$(Build.SourcesDirectory)/dockerfile'
