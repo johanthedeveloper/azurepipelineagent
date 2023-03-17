@@ -24,10 +24,12 @@ stages:
     - task: Docker@2
       displayName: Build an image
       inputs:
-        command: 'buildAndPush'
+        command: 'buil'
         containerRegistry: 'dockerhub_johanthedeveloper'
         repository: 'johanthedeveloper/azurepipelineagent'
         dockerfile: '$(Build.SourcesDirectory)/dockerfile'
         tags: |
           $(tag)
           latest
+
+#        command: 'buildAndPush'

@@ -1,5 +1,5 @@
 
-FROM ubuntu:18.04
+FROM ubuntu:22.04
 
 #Update en Upgrade to latest version
 RUN apt update && apt upgrade -y
