@@ -24,7 +24,7 @@ stages:
     - task: Docker@2
       displayName: Build an image
       inputs:
-        command: 'buildAndPush'
+        command: 'build'
         containerRegistry: 'dockerhub_johanthedeveloper'
         repository: 'johanthedeveloper/azurepipelineagent'
         dockerfile: '$(Build.SourcesDirectory)/dockerfile'
@@ -32,3 +32,15 @@ stages:
           $(tag)
           latest
         arguments: '--no-cache'
+        addPipelineData: false
+    - task: Docker@2
+      displayName: Push an image
+      inputs:
+        command: 'push'
+        containerRegistry: 'dockerhub_johanthedeveloper'
+        repository: 'johanthedeveloper/azurepipelineagent'
+        dockerfile: '$(Build.SourcesDirectory)/dockerfile'
+        tags: |
+          $(tag)
+          latest
+        addPipelineData: false
