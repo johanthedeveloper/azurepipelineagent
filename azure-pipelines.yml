@@ -31,3 +31,4 @@ stages:
         tags: |
           $(tag)
           latest
+        arguments: '--no-cache'
